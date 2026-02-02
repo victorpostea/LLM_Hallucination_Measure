@@ -1,0 +1,52 @@
+# LLM Self-Consistent Error Measurement Pipeline Configuration
+# Phase 1: Start with 1 model, 50 questions to validate pipeline
+# Scale up after confirming stability
+
+models_to_test:
+  # Find models that are chat/instruct models for the chat completions endpoint
+  - Qwen/Qwen2.5-7B-Instruct
+  - meta-llama/Llama-3.1-8B-Instruct
+
+# Judge model
+judge_model: meta-llama/Llama-3.1-8B-Instruct
+
+inference:
+  greedy:
+    do_sample: false      # Critical: disable sampling for determinism
+    temperature: null     # Ignored when do_sample=false
+    top_p: 1.0
+    top_k: null
+    max_new_tokens: 50
+  stochastic:
+    do_sample: true
+    temperature: 0.7
+    top_p: 0.9
+    num_samples: 10
+    max_new_tokens: 50
+
+correctness:
+  method: containment_match  # More robust than exact match
+  strip_articles: true       # Remove "the", "a", "an"
+  max_length_ratio: 3.0      # For containment match length guard
+
+semantic:
+  equivalence_threshold: 0.9  # 90% samples must be "Same"
+  unclear_treatment: exclude  # "exclude" from ratio, or "count_as_different"
+
+dataset:
+  name: trivia_qa
+  subset: rc              # "rc" subset has cleaner answers
+  split: validation
+  max_questions: 50       # Start small, scale after validation
+
+# Rate limiting
+rate_limit:
+  initial_delay: 2.0      # seconds
+  max_delay: 60.0         # seconds
+  backoff_factor: 2.0
+
+# Output paths
+output:
+  results_dir: data/results
+  results_file: results.jsonl
+  parquet_file: results.parquet
