@@ -1,0 +1,92 @@
+======================================================================
+LLM SELF-CONSISTENT ERROR MEASUREMENT - ANALYSIS REPORT
+======================================================================
+
+DATASET SUMMARY
+----------------------------------------
+Total records: 100
+Unique questions: 50
+Models tested: 2
+Models: Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct
+
+TABLE 1: ERROR BREAKDOWN BY MODEL
+----------------------------------------
+                Model  Total  Correct  Incorrect Accuracy  Self-Consistent Errors  Inconsistent Errors % Self-Consistent (of errors)
+  Qwen2.5-7B-Instruct     50       23         27    46.0%                      10                   17                         37.0%
+Llama-3.1-8B-Instruct     50       31         19    62.0%                       6                   13                         31.6%
+
+TABLE 3: THRESHOLD SENSITIVITY
+----------------------------------------
+(% of errors classified as self-consistent at each threshold)
+                Model Threshold 1.0 Threshold 0.9 Threshold 0.8 Threshold 0.7
+  Qwen2.5-7B-Instruct         25.9%         37.0%         51.9%         55.6%
+Llama-3.1-8B-Instruct         21.1%         31.6%         42.1%         47.4%
+
+TABLE 4: SEMANTIC JUDGE RELIABILITY (UNCLEAR RATE)
+----------------------------------------
+                Model  Total Judgments  Same  Different  Unclear Unclear Rate
+  Qwen2.5-7B-Instruct              270   172         88       10         3.7%
+Llama-3.1-8B-Instruct              190   113         77        0         0.0%
+
+TOP SELF-CONSISTENT ERRORS
+----------------------------------------
+
+1. Question: Which highway was Revisited in a classic 60s album by Bob Dylan?...
+   Wrong Answer: Highway 61
+   Correct: ['61', 'sixty-one', 'sixty one']
+   Model(s): Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct
+   Equivalence Ratio: 1.0
+
+2. Question: In the 80s who wrote the novel Empire of The Sun?...
+   Wrong Answer: J
+   Correct: ['J. G. Ballard', 'JG Ballard', 'J.G. Ballard']
+   Model(s): Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct
+   Equivalence Ratio: 0.9
+
+3. Question: Who was the man behind The Chipmunks?...
+   Wrong Answer: Ross Bagdasarian Sr
+   Correct: ['David Seville']
+   Model(s): Llama-3.1-8B-Instruct
+   Equivalence Ratio: 1.0
+
+4. Question: What claimed the life of singer Kathleen Ferrier?...
+   Wrong Answer: Tuberculosis
+   Correct: ['Cancer', 'Cancer pathology', 'Deaths by cancer']
+   Model(s): Qwen2.5-7B-Instruct
+   Equivalence Ratio: 1.0
+
+5. Question: Rita Coolidge sang the title song for which Bond film?...
+   Wrong Answer: Live and Let Die
+   Correct: ['Octopussy', 'Kamal kahn', 'List of Bond girls in Octopussy']
+   Model(s): Qwen2.5-7B-Instruct
+   Equivalence Ratio: 1.0
+
+6. Question: What was the last US state to reintroduce alcohol after prohibition?...
+   Wrong Answer: Mississippi
+   Correct: ['Utah', 'Utah (State)', 'Forty-Fifth State']
+   Model(s): Qwen2.5-7B-Instruct
+   Equivalence Ratio: 1.0
+
+7. Question: In which decade did stereo records first go on sale?...
+   Wrong Answer: 1950s
+   Correct: ['1930s', '1930’s', 'Thirties']
+   Model(s): Qwen2.5-7B-Instruct
+   Equivalence Ratio: 1.0
+
+8. Question: In what year's Olympics were electric timing devices and a public-address system used for the first time?...
+   Wrong Answer: 1912
+   Correct: ['In 1912, in Stockholm', 'in 1912 in stockholm']
+   Model(s): Qwen2.5-7B-Instruct
+   Equivalence Ratio: 1.0
+
+9. Question: Who was the director of the CIA from 1976-81?...
+   Wrong Answer: William E
+   Correct: ['George Bush', 'Goerge Bush', 'George W. Bush (disambiguation)']
+   Model(s): Qwen2.5-7B-Instruct
+   Equivalence Ratio: 0.9
+
+10. Question: Who was the director of the CIA from 1976-81?...
+   Wrong Answer: Stansfield Turner
+   Correct: ['George Bush', 'Goerge Bush', 'George W. Bush (disambiguation)']
+   Model(s): Llama-3.1-8B-Instruct
+   Equivalence Ratio: 0.9

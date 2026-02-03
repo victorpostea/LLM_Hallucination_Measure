@@ -37,13 +37,6 @@ env/
 .env
 .env.local
 
-# Data and results (keep structure, ignore contents)
-data/results/*.jsonl
-data/results/*.parquet
-data/results/*.csv
-data/results/*.txt
-data/results/*.png
-
 # Logs
 *.log
 logs/

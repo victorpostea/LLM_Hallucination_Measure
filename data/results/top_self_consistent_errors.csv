@@ -1,0 +1,11 @@
+Question,Wrong Answer,Correct Answer(s),Model(s),Equiv Ratio,Occurrence
+Which highway was Revisited in a classic 60s album by Bob Dylan?...,Highway 61,"['61', 'sixty-one', 'sixty one']","Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct",1.0,2
+In the 80s who wrote the novel Empire of The Sun?...,J,"['J. G. Ballard', 'JG Ballard', 'J.G. Ballard']","Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct",0.9,2
+Who was the man behind The Chipmunks?...,Ross Bagdasarian Sr,['David Seville'],Llama-3.1-8B-Instruct,1.0,1
+What claimed the life of singer Kathleen Ferrier?...,Tuberculosis,"['Cancer', 'Cancer pathology', 'Deaths by cancer']",Qwen2.5-7B-Instruct,1.0,1
+Rita Coolidge sang the title song for which Bond film?...,Live and Let Die,"['Octopussy', 'Kamal kahn', 'List of Bond girls in Octopussy']",Qwen2.5-7B-Instruct,1.0,1
+What was the last US state to reintroduce alcohol after prohibition?...,Mississippi,"['Utah', 'Utah (State)', 'Forty-Fifth State']",Qwen2.5-7B-Instruct,1.0,1
+In which decade did stereo records first go on sale?...,1950s,"['1930s', '1930’s', 'Thirties']",Qwen2.5-7B-Instruct,1.0,1
+In what year's Olympics were electric timing devices and a public-address system used for the first time?...,1912,"['In 1912, in Stockholm', 'in 1912 in stockholm']",Qwen2.5-7B-Instruct,1.0,1
+Who was the director of the CIA from 1976-81?...,William E,"['George Bush', 'Goerge Bush', 'George W. Bush (disambiguation)']",Qwen2.5-7B-Instruct,0.9,1
+Who was the director of the CIA from 1976-81?...,Stansfield Turner,"['George Bush', 'Goerge Bush', 'George W. Bush (disambiguation)']",Llama-3.1-8B-Instruct,0.9,1

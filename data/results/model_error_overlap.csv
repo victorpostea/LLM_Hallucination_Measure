@@ -1,0 +1,14 @@
+question_id,category
+tqa_rc_validation_15,both_models
+tqa_rc_validation_21,both_models
+tqa_rc_validation_34,both_models
+tqa_rc_validation_10,only_Qwen2.5-7B-Instruct
+tqa_rc_validation_11,only_Qwen2.5-7B-Instruct
+tqa_rc_validation_22,only_Qwen2.5-7B-Instruct
+tqa_rc_validation_26,only_Qwen2.5-7B-Instruct
+tqa_rc_validation_4,only_Qwen2.5-7B-Instruct
+tqa_rc_validation_5,only_Qwen2.5-7B-Instruct
+tqa_rc_validation_6,only_Qwen2.5-7B-Instruct
+tqa_rc_validation_0,only_Llama-3.1-8B-Instruct
+tqa_rc_validation_43,only_Llama-3.1-8B-Instruct
+tqa_rc_validation_46,only_Llama-3.1-8B-Instruct

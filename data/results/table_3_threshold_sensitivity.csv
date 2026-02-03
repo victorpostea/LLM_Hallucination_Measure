@@ -1,0 +1,3 @@
+Model,Threshold 1.0,Threshold 0.9,Threshold 0.8,Threshold 0.7
+Qwen2.5-7B-Instruct,25.9%,37.0%,51.9%,55.6%
+Llama-3.1-8B-Instruct,21.1%,31.6%,42.1%,47.4%
