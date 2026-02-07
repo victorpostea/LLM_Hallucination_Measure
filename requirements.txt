@@ -1,24 +1,30 @@
 # LLM Self-Consistent Error Measurement Pipeline
 # Python 3.10+
 
-# HuggingFace
+# ── LLM Provider SDKs ──
+openai>=1.0.0         # Also used for Groq & HuggingFace (OpenAI-compatible APIs)
+anthropic>=0.30.0     # For Claude models
+
+# ── HuggingFace ──
 huggingface_hub>=0.20.0
 datasets>=2.16.0
+
+# ── HTTP / Networking ──
 requests>=2.31.0
 
-# Data processing
+# ── Data processing ──
 pandas>=2.0.0
 pyarrow>=14.0.0  # For Parquet support
 
-# Visualization
+# ── Visualization ──
 matplotlib>=3.8.0
 seaborn>=0.13.0
 
-# Configuration
+# ── Configuration ──
 pyyaml>=6.0.0
 
-# Progress bars
+# ── Progress bars ──
 tqdm>=4.66.0
 
-# Utilities
+# ── Utilities ──
 python-dotenv>=1.0.0

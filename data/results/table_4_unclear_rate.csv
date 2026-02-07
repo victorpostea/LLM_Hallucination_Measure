@@ -1,3 +1,6 @@
 Model,Total Judgments,Same,Different,Unclear,Unclear Rate
-Qwen2.5-7B-Instruct,270,172,88,10,3.7%
-Llama-3.1-8B-Instruct,190,113,77,0,0.0%
+GPT-5.2 (OpenAI),590,470,112,8,1.4%
+Claude Opus 4.6 (Anthropic),380,333,18,29,7.6%
+Llama 4 Maverick (Groq),650,490,127,33,5.1%
+DeepSeek V3.2 (DeepSeek),470,399,51,20,4.3%
+Llama 3.1 8B (HuggingFace),850,397,410,43,5.1%

@@ -1,3 +1,6 @@
 Model,Threshold 1.0,Threshold 0.9,Threshold 0.8,Threshold 0.7
-Qwen2.5-7B-Instruct,25.9%,37.0%,51.9%,55.6%
-Llama-3.1-8B-Instruct,21.1%,31.6%,42.1%,47.4%
+GPT-5.2 (OpenAI),61.0%,64.4%,72.9%,76.3%
+Claude Opus 4.6 (Anthropic),84.2%,84.2%,86.8%,86.8%
+Llama 4 Maverick (Groq),49.2%,58.5%,61.5%,72.3%
+DeepSeek V3.2 (DeepSeek),59.6%,70.2%,76.6%,78.7%
+Llama 3.1 8B (HuggingFace),14.1%,16.5%,23.5%,29.4%

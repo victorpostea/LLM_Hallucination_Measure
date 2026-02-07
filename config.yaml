@@ -1,19 +1,44 @@
 # LLM Self-Consistent Error Measurement Pipeline Configuration
-# Phase 1: Start with 1 model, 50 questions to validate pipeline
-# Scale up after confirming stability
+# Phase 2: 150 questions, frontier models from multiple providers
+#
+# NOTE: If you have old results from Phase 1 in data/results/, either delete
+# them or change the output paths below before running.
 
+# ── Models to test ────────────────────────────────────────────────────
+# Each entry needs model_id (API identifier), provider, and display_name.
 models_to_test:
-  # Find models that are chat/instruct models for the chat completions endpoint
-  - Qwen/Qwen2.5-7B-Instruct
-  - meta-llama/Llama-3.1-8B-Instruct
+  - model_id: gpt-5.2
+    provider: openai
+    display_name: GPT-5.2 (OpenAI)
 
-# Judge model
-judge_model: meta-llama/Llama-3.1-8B-Instruct
+  - model_id: claude-opus-4-6
+    provider: anthropic
+    display_name: Claude Opus 4.6 (Anthropic)
 
+  - model_id: meta-llama/llama-4-maverick-17b-128e-instruct
+    provider: groq
+    display_name: Llama 4 Maverick (Groq)
+
+  - model_id: deepseek-chat
+    provider: deepseek
+    display_name: DeepSeek V3.2 (DeepSeek)
+
+  - model_id: meta-llama/Llama-3.1-8B-Instruct
+    provider: huggingface
+    display_name: Llama 3.1 8B (HuggingFace)
+
+# ── Judge model ───────────────────────────────────────────────────────
+# Used for semantic equivalence judgments (Same / Different / Unclear).
+# GPT-5.2 is fast, capable, and cost-effective for short classification tasks.
+judge:
+  model_id: gpt-5.2
+  provider: openai
+
+# ── Inference settings ────────────────────────────────────────────────
 inference:
   greedy:
-    do_sample: false      # Critical: disable sampling for determinism
-    temperature: null     # Ignored when do_sample=false
+    do_sample: false       # Disable sampling for determinism
+    temperature: null      # Overridden per-provider in code (0.0 Anthropic, 0.01 others)
     top_p: 1.0
     top_k: null
     max_new_tokens: 50
@@ -24,28 +49,31 @@ inference:
     num_samples: 10
     max_new_tokens: 50
 
+# ── Correctness checking ─────────────────────────────────────────────
 correctness:
-  method: containment_match  # More robust than exact match
-  strip_articles: true       # Remove "the", "a", "an"
-  max_length_ratio: 3.0      # For containment match length guard
+  method: containment_match   # More robust than exact match
+  strip_articles: true        # Remove "the", "a", "an"
+  max_length_ratio: 3.0       # Length guard for containment match
 
+# ── Semantic equivalence ─────────────────────────────────────────────
 semantic:
-  equivalence_threshold: 0.9  # 90% samples must be "Same"
+  equivalence_threshold: 0.9  # 90% of samples must be "Same"
   unclear_treatment: exclude  # "exclude" from ratio, or "count_as_different"
 
+# ── Dataset ──────────────────────────────────────────────────────────
 dataset:
   name: trivia_qa
-  subset: rc              # "rc" subset has cleaner answers
+  subset: rc                  # "rc" subset has cleaner answers
   split: validation
-  max_questions: 50       # Start small, scale after validation
+  max_questions: 200          # Scaled up from 50
 
-# Rate limiting
+# ── Rate limiting ────────────────────────────────────────────────────
 rate_limit:
-  initial_delay: 2.0      # seconds
-  max_delay: 60.0         # seconds
+  initial_delay: 2.0          # seconds
+  max_delay: 60.0             # seconds
   backoff_factor: 2.0
 
-# Output paths
+# ── Output paths ─────────────────────────────────────────────────────
 output:
   results_dir: data/results
   results_file: results.jsonl
